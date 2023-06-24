@@ -38,18 +38,18 @@
             this.lblIngreso = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.mrcMain = new System.Windows.Forms.GroupBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtLugar = new System.Windows.Forms.TextBox();
-            this.txtEdad = new System.Windows.Forms.TextBox();
-            this.txtIngreso = new System.Windows.Forms.TextBox();
-            this.txtPuntaje = new System.Windows.Forms.TextBox();
-            this.optMasculino = new System.Windows.Forms.RadioButton();
-            this.optFemenino = new System.Windows.Forms.RadioButton();
-            this.btnRegistro = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnRegistro = new System.Windows.Forms.Button();
+            this.optFemenino = new System.Windows.Forms.RadioButton();
+            this.optMasculino = new System.Windows.Forms.RadioButton();
+            this.txtPuntaje = new System.Windows.Forms.TextBox();
+            this.txtIngreso = new System.Windows.Forms.TextBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.cmbPais = new System.Windows.Forms.ComboBox();
             this.mrcMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +145,7 @@
             // 
             // mrcMain
             // 
+            this.mrcMain.Controls.Add(this.cmbPais);
             this.mrcMain.Controls.Add(this.btnBorrar);
             this.mrcMain.Controls.Add(this.btnRegistro);
             this.mrcMain.Controls.Add(this.optFemenino);
@@ -152,7 +153,6 @@
             this.mrcMain.Controls.Add(this.txtPuntaje);
             this.mrcMain.Controls.Add(this.txtIngreso);
             this.mrcMain.Controls.Add(this.txtEdad);
-            this.mrcMain.Controls.Add(this.txtLugar);
             this.mrcMain.Controls.Add(this.txtApellido);
             this.mrcMain.Controls.Add(this.txtNombre);
             this.mrcMain.Controls.Add(this.lblNombre);
@@ -169,73 +169,22 @@
             this.mrcMain.TabStop = false;
             this.mrcMain.Text = "Ingrese los siguientes datos";
             // 
-            // txtNombre
+            // btnBorrar
             // 
-            this.txtNombre.Location = new System.Drawing.Point(201, 40);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 9;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(201, 94);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 10;
-            // 
-            // txtLugar
-            // 
-            this.txtLugar.Location = new System.Drawing.Point(201, 147);
-            this.txtLugar.Name = "txtLugar";
-            this.txtLugar.Size = new System.Drawing.Size(100, 20);
-            this.txtLugar.TabIndex = 11;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(201, 189);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(100, 20);
-            this.txtEdad.TabIndex = 12;
-            // 
-            // txtIngreso
-            // 
-            this.txtIngreso.Location = new System.Drawing.Point(201, 288);
-            this.txtIngreso.Name = "txtIngreso";
-            this.txtIngreso.Size = new System.Drawing.Size(100, 20);
-            this.txtIngreso.TabIndex = 13;
-            // 
-            // txtPuntaje
-            // 
-            this.txtPuntaje.Location = new System.Drawing.Point(201, 340);
-            this.txtPuntaje.Name = "txtPuntaje";
-            this.txtPuntaje.Size = new System.Drawing.Size(100, 20);
-            this.txtPuntaje.TabIndex = 14;
-            // 
-            // optMasculino
-            // 
-            this.optMasculino.AutoSize = true;
-            this.optMasculino.Location = new System.Drawing.Point(212, 224);
-            this.optMasculino.Name = "optMasculino";
-            this.optMasculino.Size = new System.Drawing.Size(73, 17);
-            this.optMasculino.TabIndex = 15;
-            this.optMasculino.TabStop = true;
-            this.optMasculino.Text = "Masculino";
-            this.optMasculino.UseVisualStyleBackColor = true;
-            // 
-            // optFemenino
-            // 
-            this.optFemenino.AutoSize = true;
-            this.optFemenino.Location = new System.Drawing.Point(212, 247);
-            this.optFemenino.Name = "optFemenino";
-            this.optFemenino.Size = new System.Drawing.Size(71, 17);
-            this.optFemenino.TabIndex = 16;
-            this.optFemenino.TabStop = true;
-            this.optFemenino.Text = "Femenino";
-            this.optFemenino.UseVisualStyleBackColor = true;
+            this.btnBorrar.BackColor = System.Drawing.Color.Red;
+            this.btnBorrar.Enabled = false;
+            this.btnBorrar.Location = new System.Drawing.Point(155, 385);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(131, 43);
+            this.btnBorrar.TabIndex = 18;
+            this.btnBorrar.Text = "Borrar todo";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnRegistro
             // 
             this.btnRegistro.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnRegistro.Enabled = false;
             this.btnRegistro.Location = new System.Drawing.Point(18, 385);
             this.btnRegistro.Name = "btnRegistro";
             this.btnRegistro.Size = new System.Drawing.Size(131, 43);
@@ -244,15 +193,76 @@
             this.btnRegistro.UseVisualStyleBackColor = false;
             this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
             // 
-            // btnBorrar
+            // optFemenino
             // 
-            this.btnBorrar.BackColor = System.Drawing.Color.Red;
-            this.btnBorrar.Location = new System.Drawing.Point(155, 385);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(131, 43);
-            this.btnBorrar.TabIndex = 18;
-            this.btnBorrar.Text = "Borrar todo";
-            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.optFemenino.AutoSize = true;
+            this.optFemenino.Enabled = false;
+            this.optFemenino.Location = new System.Drawing.Point(212, 247);
+            this.optFemenino.Name = "optFemenino";
+            this.optFemenino.Size = new System.Drawing.Size(71, 17);
+            this.optFemenino.TabIndex = 16;
+            this.optFemenino.TabStop = true;
+            this.optFemenino.Text = "Femenino";
+            this.optFemenino.UseVisualStyleBackColor = true;
+            this.optFemenino.CheckedChanged += new System.EventHandler(this.optFemenino_CheckedChanged);
+            // 
+            // optMasculino
+            // 
+            this.optMasculino.AutoSize = true;
+            this.optMasculino.Enabled = false;
+            this.optMasculino.Location = new System.Drawing.Point(212, 224);
+            this.optMasculino.Name = "optMasculino";
+            this.optMasculino.Size = new System.Drawing.Size(73, 17);
+            this.optMasculino.TabIndex = 15;
+            this.optMasculino.TabStop = true;
+            this.optMasculino.Text = "Masculino";
+            this.optMasculino.UseVisualStyleBackColor = true;
+            this.optMasculino.CheckedChanged += new System.EventHandler(this.optMasculino_CheckedChanged);
+            // 
+            // txtPuntaje
+            // 
+            this.txtPuntaje.Enabled = false;
+            this.txtPuntaje.Location = new System.Drawing.Point(201, 340);
+            this.txtPuntaje.Name = "txtPuntaje";
+            this.txtPuntaje.Size = new System.Drawing.Size(100, 20);
+            this.txtPuntaje.TabIndex = 14;
+            this.txtPuntaje.TextChanged += new System.EventHandler(this.txtPuntaje_TextChanged);
+            // 
+            // txtIngreso
+            // 
+            this.txtIngreso.Enabled = false;
+            this.txtIngreso.Location = new System.Drawing.Point(201, 288);
+            this.txtIngreso.Name = "txtIngreso";
+            this.txtIngreso.Size = new System.Drawing.Size(100, 20);
+            this.txtIngreso.TabIndex = 13;
+            // 
+            // txtEdad
+            // 
+            this.txtEdad.Enabled = false;
+            this.txtEdad.Location = new System.Drawing.Point(201, 189);
+            this.txtEdad.MaxLength = 3;
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(100, 20);
+            this.txtEdad.TabIndex = 12;
+            this.txtEdad.TextChanged += new System.EventHandler(this.txtEdad_TextChanged);
+            this.txtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdad_KeyPress);
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Enabled = false;
+            this.txtApellido.Location = new System.Drawing.Point(201, 94);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 10;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(201, 40);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 9;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // btnAyuda
             // 
@@ -271,6 +281,19 @@
             this.btnSalir.TabIndex = 19;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // cmbPais
+            // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPais.Enabled = false;
+            this.cmbPais.FormattingEnabled = true;
+            this.cmbPais.Items.AddRange(new object[] {
+            "uwu"});
+            this.cmbPais.Location = new System.Drawing.Point(201, 143);
+            this.cmbPais.Name = "cmbPais";
+            this.cmbPais.Size = new System.Drawing.Size(100, 21);
+            this.cmbPais.TabIndex = 19;
+            this.cmbPais.SelectedIndexChanged += new System.EventHandler(this.cmbPais_SelectedIndexChanged);
             // 
             // frmMain
             // 
@@ -310,13 +333,13 @@
         private System.Windows.Forms.TextBox txtPuntaje;
         private System.Windows.Forms.TextBox txtIngreso;
         private System.Windows.Forms.TextBox txtEdad;
-        private System.Windows.Forms.TextBox txtLugar;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ComboBox cmbPais;
     }
 }
 

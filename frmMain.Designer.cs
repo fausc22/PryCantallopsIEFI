@@ -38,6 +38,9 @@
             this.lblIngreso = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.mrcMain = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.cmbPais = new System.Windows.Forms.ComboBox();
+            this.btnPais = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.optFemenino = new System.Windows.Forms.RadioButton();
@@ -47,9 +50,7 @@
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.btnAyuda = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.cmbPais = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mrcMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,7 +146,10 @@
             // 
             // mrcMain
             // 
+            this.mrcMain.Controls.Add(this.label1);
+            this.mrcMain.Controls.Add(this.btnSalir);
             this.mrcMain.Controls.Add(this.cmbPais);
+            this.mrcMain.Controls.Add(this.btnPais);
             this.mrcMain.Controls.Add(this.btnBorrar);
             this.mrcMain.Controls.Add(this.btnRegistro);
             this.mrcMain.Controls.Add(this.optFemenino);
@@ -164,16 +168,49 @@
             this.mrcMain.Controls.Add(this.lblEdad);
             this.mrcMain.Location = new System.Drawing.Point(12, 79);
             this.mrcMain.Name = "mrcMain";
-            this.mrcMain.Size = new System.Drawing.Size(314, 434);
+            this.mrcMain.Size = new System.Drawing.Size(314, 492);
             this.mrcMain.TabIndex = 9;
             this.mrcMain.TabStop = false;
             this.mrcMain.Text = "Ingrese los siguientes datos";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSalir.Location = new System.Drawing.Point(160, 434);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(129, 43);
+            this.btnSalir.TabIndex = 19;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // cmbPais
+            // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPais.Enabled = false;
+            this.cmbPais.FormattingEnabled = true;
+            this.cmbPais.Location = new System.Drawing.Point(201, 143);
+            this.cmbPais.Name = "cmbPais";
+            this.cmbPais.Size = new System.Drawing.Size(100, 21);
+            this.cmbPais.TabIndex = 19;
+            this.cmbPais.SelectedIndexChanged += new System.EventHandler(this.cmbPais_SelectedIndexChanged);
+            // 
+            // btnPais
+            // 
+            this.btnPais.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPais.Location = new System.Drawing.Point(18, 434);
+            this.btnPais.Name = "btnPais";
+            this.btnPais.Size = new System.Drawing.Size(131, 43);
+            this.btnPais.TabIndex = 18;
+            this.btnPais.Text = "Agregar lugar";
+            this.btnPais.UseVisualStyleBackColor = false;
+            this.btnPais.Click += new System.EventHandler(this.btnPais_Click);
             // 
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.Red;
             this.btnBorrar.Enabled = false;
-            this.btnBorrar.Location = new System.Drawing.Point(155, 385);
+            this.btnBorrar.Location = new System.Drawing.Point(158, 385);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(131, 43);
             this.btnBorrar.TabIndex = 18;
@@ -264,45 +301,22 @@
             this.txtNombre.TabIndex = 9;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
-            // btnAyuda
+            // label1
             // 
-            this.btnAyuda.Location = new System.Drawing.Point(167, 534);
-            this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(75, 23);
-            this.btnAyuda.TabIndex = 18;
-            this.btnAyuda.Text = "Ayuda";
-            this.btnAyuda.UseVisualStyleBackColor = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(251, 534);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 19;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // cmbPais
-            // 
-            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPais.Enabled = false;
-            this.cmbPais.FormattingEnabled = true;
-            this.cmbPais.Items.AddRange(new object[] {
-            "uwu"});
-            this.cmbPais.Location = new System.Drawing.Point(201, 143);
-            this.cmbPais.Name = "cmbPais";
-            this.cmbPais.Size = new System.Drawing.Size(100, 21);
-            this.cmbPais.TabIndex = 19;
-            this.cmbPais.SelectedIndexChanged += new System.EventHandler(this.cmbPais_SelectedIndexChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(179, 288);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 18);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "$";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(336, 569);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnAyuda);
+            this.ClientSize = new System.Drawing.Size(345, 598);
             this.Controls.Add(this.mrcMain);
             this.Controls.Add(this.lblMiembro);
             this.Controls.Add(this.lblClub);
@@ -337,9 +351,10 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnRegistro;
-        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnPais;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ComboBox cmbPais;
+        private System.Windows.Forms.Label label1;
     }
 }
 

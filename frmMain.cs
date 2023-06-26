@@ -19,13 +19,16 @@ namespace PryCantallopsIEFI
             InitializeComponent();
         }
 
+        //evento load donde se carga el combo box de paises
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+            //llamo al objeto conexion para utilizar el evento de cargar los paises en el combo box
+            ClsConexion cls = new ClsConexion();
+            cls.CargarPaises(cmbPais);
         }
 
         
-
+        //propiedad para que solo se pueden poner numeros en el textbox edad
         private void txtEdad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -34,8 +37,11 @@ namespace PryCantallopsIEFI
             }
         }
 
+
+        //evento boton de registro para registar un nuevo socio
         private void btnRegistro_Click(object sender, EventArgs e)
         {
+            //booleano para determinar el tipo de sexo utilizando el boton de opcion
             bool sexo=true;
             if (optMasculino.Checked == true) 
             {
@@ -48,10 +54,16 @@ namespace PryCantallopsIEFI
                     sexo = false;
                 }
             }
+
+            //llamo el objeto de la clase conexion para escribir un nuevo socio en la base de datos
             ClsConexion obj = new ClsConexion();
             obj.RegistrarSocio(txtNombre.Text, txtApellido.Text, cmbPais.Text, Convert.ToInt32(txtEdad.Text), sexo, Convert.ToDecimal(txtIngreso.Text), Convert.ToInt32(txtPuntaje.Text));
+            LimpiarDatos();
         }
 
+
+
+        //eventos para la validacion del ingreso de datos, para evitar errores en la interfaz
         private void optFemenino_CheckedChanged(object sender, EventArgs e)
         {
             if (optFemenino.Checked == true)
@@ -113,6 +125,7 @@ namespace PryCantallopsIEFI
             }
         }
 
+        //evento para limpiar la interfaz
         private void LimpiarDatos()
         {
             txtNombre.Clear();
@@ -133,10 +146,25 @@ namespace PryCantallopsIEFI
             btnRegistro.Enabled=false;
         }
 
-
+        //boton para limpiar la interfaz
         private void btnBorrar_Click(object sender, EventArgs e)
         {
            LimpiarDatos();
+        }
+
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        //evento para abrir un nuevo formulario e ingresar un nuevo pais
+        private void btnPais_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmPais frm = new frmPais();
+            frm.ShowDialog();
         }
     }
 }
